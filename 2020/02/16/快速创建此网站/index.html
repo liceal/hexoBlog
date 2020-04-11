@@ -15,14 +15,16 @@
 <meta property="og:site_name" content="米勒的博客">
 <meta property="og:description" content="介绍 环境 入门 参考文献 资源文件 切换主题 文章过长截断 github.io 404问题      介绍使用hexo静态网站生成器 只需要简单的配置就可以生成一个网站">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://liceal.github.io/img/tip1.png">
+<meta property="og:image" content="http://liceal.github.io/img/tip2.png">
 <meta property="og:image" content="http://liceal.github.io/img/wz-1.png">
 <meta property="og:image" content="http://liceal.github.io/img/wz-2.png">
 <meta property="article:published_time" content="2020-02-16T07:01:48.000Z">
-<meta property="article:modified_time" content="2020-02-25T13:46:41.057Z">
+<meta property="article:modified_time" content="2020-04-11T09:00:27.047Z">
 <meta property="article:author" content="米勒">
 <meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://liceal.github.io/img/wz-1.png">
+<meta name="twitter:image" content="http://liceal.github.io/img/tip1.png">
   
     <link rel="alternative" href="/atom.xml" title="米勒的博客" type="application/atom+xml">
   
@@ -214,10 +216,15 @@
 <h2><span id="参考文献">参考文献</span></h2><p>本地端调试 + 服务端部署</p>
 <p><a href="https://www.jianshu.com/p/f2ceab87bf69" target="_blank" rel="noopener">https://www.jianshu.com/p/f2ceab87bf69</a></p>
 <p><a href="https://www.bilibili.com/video/av44544186/" target="_blank" rel="noopener">https://www.bilibili.com/video/av44544186/</a>    ⭐</p>
-<h2><span id="资源文件">资源文件</span></h2><p><code>主题文件夹/source/</code>  存放静态资源，默认有一个<code>img</code>文件夹，<code>hexo g</code>后会在public下生成<code>source</code>里存在的静态文件夹，例如<code>img</code></p>
-<p>所以<code>.md</code>文件内的资源文件地址就统一调用这个文件夹，或者你自己创建一个</p>
-<p>配置文件中的待用方式一样</p>
-<p><code>![](/img/hello.png)</code></p>
+<h2><span id="资源文件">资源文件</span></h2><blockquote>
+<p>为文章加图片</p>
+<p> <code>![](/img/hello.png)</code></p>
+</blockquote>
+<p><code>主题文件夹/source/</code>  存放静态资源，默认有一个<code>img</code>文件夹</p>
+<p><code>hexo g</code>后会在<code>public/img</code>内生成，这个<code>img</code>对应你<code>主题文件夹/source/img</code></p>
+<p><img src="/img/tip1.png" alt> <img src="/img/tip2.png" alt></p>
+<p>所以<code>.md</code>文件内的资源文件地址就统一调用这个文件夹<code>/img/</code></p>
+<p>或者你自己创建一个文件夹  <code>/YouDirName/</code></p>
 <h2><span id="切换主题">切换主题</span></h2><ol>
 <li>从github或者hexo等地方下载主题文件夹</li>
 <li>放在themes文件夹下</li>
@@ -476,6 +483,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -541,7 +552,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">99年简单的小屁孩。&lt;br/&gt; 怀念那个孤傲的年代，&lt;br/&gt;虽有悲情，但灿烂精彩。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">99年小男孩。&lt;br/&gt; 怀念那个孤傲的年代，&lt;br/&gt;虽有悲情，但灿烂精彩。</div>
   	  	
     	</section>
     

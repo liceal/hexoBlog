@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://liceal.github.io">
-  <title>Archives: 2020 | 米勒的博客</title>
+  <title>canvas快速入门 | 米勒的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="米勒的博客">
-<meta property="og:url" content="http://liceal.github.io/archives/2020/index.html">
+  <meta name="description" content="canvas做动画的效果比div流畅很多，而且复杂的动画不会很卡，很多效果是由js实现的，css可以提供的属性比较少，canvas做一些牛皮的动画，更多的需要一点几何学（滑稽） canvas做动画的原理是一帧一帧来的（可以体会到画家的辛苦哦），每次需要清空画板重新渲染，所以在做动画需要一直循环然后通过公式来绘制出运动轨迹。 下面我会放其他教程更全面的链接 和 一个Demo  效果 DOM节点12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas快速入门">
+<meta property="og:url" content="http://liceal.github.io/2020/04/11/canvas%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="米勒的博客">
+<meta property="og:description" content="canvas做动画的效果比div流畅很多，而且复杂的动画不会很卡，很多效果是由js实现的，css可以提供的属性比较少，canvas做一些牛皮的动画，更多的需要一点几何学（滑稽） canvas做动画的原理是一帧一帧来的（可以体会到画家的辛苦哦），每次需要清空画板重新渲染，所以在做动画需要一直循环然后通过公式来绘制出运动轨迹。 下面我会放其他教程更全面的链接 和 一个Demo  效果 DOM节点12">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://liceal.github.io/img/md3/GIF.gif">
+<meta property="article:published_time" content="2020-04-11T08:34:48.000Z">
+<meta property="article:modified_time" content="2020-04-11T10:22:48.473Z">
 <meta property="article:author" content="米勒">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://liceal.github.io/img/md3/GIF.gif">
   
     <link rel="alternative" href="/atom.xml" title="米勒的博客" type="application/atom+xml">
   
@@ -150,36 +157,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-canvas快速入门" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/canvas%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-04-11T08:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/canvas%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">canvas快速入门</a>
+    <h1 class="article-title" itemprop="name">
+      canvas快速入门
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/11/canvas%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2020-04-11T08:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>canvas做动画的效果比div流畅很多，而且复杂的动画不会很卡，很多效果是由js实现的，css可以提供的属性比较少，canvas做一些牛皮的动画，更多的需要一点几何学（滑稽）</p>
+<p>canvas做动画的原理是一帧一帧来的（可以体会到画家的辛苦哦），每次需要清空画板重新渲染，所以在做动画需要一直循环然后通过公式来绘制出运动轨迹。</p>
+<p>下面我会放其他教程更全面的链接 和 一个Demo</p>
+</blockquote>
+<h4><span id="效果">效果</span></h4><p><img src="/img/md3/GIF.gif" alt></p>
+<h4><span id="dom节点">DOM节点</span></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">"400"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid #000000;"</span>&gt;</span></span><br><span class="line">    你的浏览器不支持canvas，请升级浏览器</span><br><span class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>width和height只能在canvas节点中设置</p>
+<p>如果canvas渲染失败，会显示内容</p>
+<h4><span id="初始2d画布">初始2d画布</span></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'canvas'</span>)[<span class="number">0</span>] <span class="comment">//获取节点</span></span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>) <span class="comment">//得到2d画板</span></span><br></pre></td></tr></table></figure>
+
+<p>有多个画布的话 getTag可以更方便的获取想操作的画布</p>
+<p>填<code>3d</code>就得到3d画板了</p>
+<h4><span id="矩形构造函数">矩形构造函数</span></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ItcastRect</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//矩形构造函数</span></span><br><span class="line">    <span class="keyword">this</span>._init(option);</span><br><span class="line">&#125;</span><br><span class="line">ItcastRect.prototype = &#123;</span><br><span class="line">    <span class="comment">//矩形的原型对象</span></span><br><span class="line">    _init: <span class="function"><span class="keyword">function</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//初始化方法</span></span><br><span class="line">        option = option || &#123;&#125;;</span><br><span class="line">        <span class="keyword">this</span>.x = option.x === <span class="number">0</span> ? <span class="number">0</span> : option.x || <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">this</span>.y = option.y === <span class="number">0</span> ? <span class="number">0</span> : option.y || <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">this</span>.w = option.w || <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">this</span>.h = option.h || <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">this</span>.angle = option.angle === <span class="number">0</span> ? <span class="number">0</span> : option.angle || <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.fillStyle = option.fillStyle || <span class="string">"silver"</span>;</span><br><span class="line">        <span class="keyword">this</span>.strokeStyle = option.strokeStyle || <span class="string">"red"</span>;</span><br><span class="line">        <span class="keyword">this</span>.strokeWidth = option.strokeWidth || <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">this</span>.scaleX = option.scaleX || <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">this</span>.scaleY = option.Y || <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>) </span>&#123;</span><br><span class="line">        ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">200</span>); <span class="comment">//清屏 从0,0开始大小400*200</span></span><br><span class="line">        <span class="comment">//把矩形渲染到canvas中</span></span><br><span class="line">        ctx.save();</span><br><span class="line">        ctx.translate(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y); <span class="comment">//位移画布</span></span><br><span class="line">        ctx.rotate((<span class="keyword">this</span>.angle * <span class="built_in">Math</span>.PI) / <span class="number">180</span>); <span class="comment">//旋转角度</span></span><br><span class="line">        ctx.scale(<span class="keyword">this</span>.scaleX, <span class="keyword">this</span>.scaleY); <span class="comment">//缩放</span></span><br><span class="line">        ctx.fillStyle = <span class="keyword">this</span>.fillStyle;</span><br><span class="line">        ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.w, <span class="keyword">this</span>.h); <span class="comment">//填充矩形</span></span><br><span class="line">        ctx.lineWidth = <span class="keyword">this</span>.strokeWidth; <span class="comment">//线宽</span></span><br><span class="line">        ctx.strokeStyle = <span class="keyword">this</span>.strokeStyle; <span class="comment">//填充样式</span></span><br><span class="line">        ctx.strokeRect(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.w, <span class="keyword">this</span>.h); <span class="comment">//描边样式</span></span><br><span class="line">        ctx.restore();</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">constructor</span>: ItcastRect</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这里构造函数new出来后就是一个方块，并且每次render都会清屏一次，清屏大小是拟定的，跟canvas大小一样</p>
+<p>constructor可以不写，这里重定向原型到<code>ItcastRect</code>方法上，不写的话默认返回Object</p>
+<h4><span id="移动方块">移动方块</span></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化一下方块</span></span><br><span class="line"><span class="keyword">const</span> rect = <span class="keyword">new</span> ItcastRect();</span><br><span class="line"><span class="keyword">let</span> x = <span class="number">0</span>, <span class="comment">//初始位置</span></span><br><span class="line">    y = <span class="number">50</span>,</span><br><span class="line">    speed = <span class="number">100</span>, <span class="comment">// 100px/1s 每秒移动一百像素</span></span><br><span class="line">    fps = <span class="number">60</span>, <span class="comment">// 帧率</span></span><br><span class="line">    x_step = speed / fps, <span class="comment">//每次移动像素</span></span><br><span class="line">    y_step = speed / fps;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 移动</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param <span class="type">&#123;Object&#125;</span> <span class="variable">rect</span></span> - 方块实例</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">rect</span>) </span>&#123;</span><br><span class="line">    rect._init(&#123;</span><br><span class="line">        x,</span><br><span class="line">        y</span><br><span class="line">    &#125;);</span><br><span class="line">    rect.render(ctx);</span><br><span class="line">    x += x_step;</span><br><span class="line">    y += y_step;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">300</span> || x &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        x_step *= <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (y &gt;= <span class="number">100</span> || y &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        y_step *= <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        move(rect);</span><br><span class="line">    &#125;, <span class="number">1000</span> / fps);</span><br><span class="line">&#125;</span><br><span class="line">move(rect);</span><br></pre></td></tr></table></figure>
+
+<p>用递归的方式移动方块，用一些简单的公式计算下一个位置，然后清空画布重新渲染。</p>
+<h3><span id="canvas详解">canvas详解</span></h3><blockquote>
+<p> <a href="https://malun666.github.io/aicoder_vip_doc/#/pages/canvas" target="_blank" rel="noopener">https://malun666.github.io/aicoder_vip_doc/#/pages/canvas</a></p>
+</blockquote>
+<p>讲的挺好的，canvas有很多基础属性需要花点时间看看。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb_QR.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,95 +247,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://liceal.github.io/2020/04/11/canvas%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/vue-modules-test/" class="archive-article-date">
-  	<time datetime="2020-02-20T02:26:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/20/vue-modules-test/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">快速入门各种VUE好玩的第三方库</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/vue-modules-test/">快速入门各种VUE好玩的第三方库</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/16/%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E6%AD%A4%E7%BD%91%E7%AB%99/" class="archive-article-date">
-  	<time datetime="2020-02-16T07:01:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/16/%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E6%AD%A4%E7%BD%91%E7%AB%99/">快速创建此网站</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -302,8 +369,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

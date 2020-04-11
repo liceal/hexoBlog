@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://liceal.github.io">
-  <title>Archives: 2020 | 米勒的博客</title>
+  <title>米勒的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Document                 你的浏览器不支持canvas，请升级浏览器               console.clear()      var canvas &#x3D; document.getElementsByTagName(&#39;canvas&#39;)[0] &#x2F;&#x2F;获取节点     var ctx &#x3D; canvas.getContext(&#39;2d&#39;)">
+<meta property="og:type" content="website">
 <meta property="og:title" content="米勒的博客">
-<meta property="og:url" content="http://liceal.github.io/archives/2020/index.html">
+<meta property="og:url" content="http://liceal.github.io/download/canvasDemo.html">
 <meta property="og:site_name" content="米勒的博客">
+<meta property="og:description" content="Document                 你的浏览器不支持canvas，请升级浏览器               console.clear()      var canvas &#x3D; document.getElementsByTagName(&#39;canvas&#39;)[0] &#x2F;&#x2F;获取节点     var ctx &#x3D; canvas.getContext(&#39;2d&#39;)">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-11T10:18:29.500Z">
+<meta property="article:modified_time" content="2020-04-11T10:18:29.500Z">
 <meta property="article:author" content="米勒">
 <meta name="twitter:card" content="summary">
   
@@ -150,136 +154,226 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <canvas width="400" height="200" style="border: 1px solid #000000;">
+        你的浏览器不支持canvas，请升级浏览器
+    </canvas>
+</body>
+
+</html>
+
+<script>
+    console.clear()
+
+    var canvas = document.getElementsByTagName('canvas')[0] //获取节点
+    var ctx = canvas.getContext('2d') //得到2d画板
+
+    function ItcastRect(option) {
+        //矩形构造函数
+        this._init(option);
+    }
+    ItcastRect.prototype = {
+        //矩形的原型对象
+        _init: function(option) {
+            //初始化方法
+            option = option || {};
+            this.x = option.x === 0 ? 0 : option.x || 100;
+            this.y = option.y === 0 ? 0 : option.y || 100;
+            this.w = option.w || 100;
+            this.h = option.h || 100;
+            this.angle = option.angle === 0 ? 0 : option.angle || 0;
+            this.fillStyle = option.fillStyle || "silver";
+            this.strokeStyle = option.strokeStyle || "red";
+            this.strokeWidth = option.strokeWidth || 4;
+            this.scaleX = option.scaleX || 1;
+            this.scaleY = option.Y || 1;
+        },
+        render: function(ctx) {
+            ctx.clearRect(0, 0, 400, 200); //清屏 从0,0开始大小400*200
+            //把矩形渲染到canvas中
+            ctx.save();
+            ctx.translate(this.x, this.y); //位移画布
+            ctx.rotate((this.angle * Math.PI) / 180); //旋转角度
+            ctx.scale(this.scaleX, this.scaleY); //缩放
+            ctx.fillStyle = this.fillStyle;
+            ctx.fillRect(0, 0, this.w, this.h); //填充矩形
+            ctx.lineWidth = this.strokeWidth; //线宽
+            ctx.strokeStyle = this.strokeStyle; //填充样式
+            ctx.strokeRect(0, 0, this.w, this.h); //描边样式
+            ctx.restore();
+        },
+        constructor: ItcastRect
+    };
+
+    const rect = new ItcastRect();
+    let x = 0, //初始位置
+        y = 50,
+        speed = 100, //每秒100像素
+        fps = 60, // 帧率
+        x_step = speed / fps, //每次移动像素
+        y_step = speed / fps;
+
+    /**
+     * 移动
+     * @param {Object} rect - 方块实例
+     */
+    function move(rect) {
+        rect._init({
+            x,
+            y
+        });
+        rect.render(ctx);
+        x += x_step;
+        y += y_step;
+        if (x >= 300 || x < 0) {
+            x_step *= -1;
+        }
+        if (y >= 100 || y < 0) {
+            y_step *= -1;
+        }
+        setTimeout(() => {
+            move(rect);
+        }, 1000 / fps);
+    }
+    move(rect);
+</script>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb_QR.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/canvas%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-04-11T08:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/canvas%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">canvas快速入门</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://liceal.github.io/download/canvasDemo.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/vue-modules-test/" class="archive-article-date">
-  	<time datetime="2020-02-20T02:26:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/vue-modules-test/">快速入门各种VUE好玩的第三方库</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VUE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/16/%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E6%AD%A4%E7%BD%91%E7%AB%99/" class="archive-article-date">
-  	<time datetime="2020-02-16T07:01:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/16/%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E6%AD%A4%E7%BD%91%E7%AB%99/">快速创建此网站</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -303,7 +397,7 @@
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
