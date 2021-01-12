@@ -89,7 +89,7 @@ console.log("count: " + count(1, 2)(3)); // count: 14
 
 ### 或者 Number 类型
 
-代码改一下
+代码改一下 将 `toString` 换成 `valueOf`
 
 ```js
 ...
