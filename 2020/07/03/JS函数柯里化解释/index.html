@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://liceal.github.io">
   <title>JS函数柯里化解释 | 米勒的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="函数柯里化是一个很有意思的东西，可以对一个自定义次数调用，并且每次调用参数随意，感觉很Free，个人觉得功能跟继承类很像。 引用别人的话： curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。 你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用。">
+  <meta name="description" content="函数柯里化是一个很有意思的东西，可以对一个自定义次数调用，并且每次调用参数随意，感觉很 Free，个人觉得功能跟继承类很像。 引用别人的话： curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。 你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS函数柯里化解释">
 <meta property="og:url" content="http://liceal.github.io/2020/07/03/JS%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96%E8%A7%A3%E9%87%8A/index.html">
 <meta property="og:site_name" content="米勒的博客">
-<meta property="og:description" content="函数柯里化是一个很有意思的东西，可以对一个自定义次数调用，并且每次调用参数随意，感觉很Free，个人觉得功能跟继承类很像。 引用别人的话： curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。 你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用。">
+<meta property="og:description" content="函数柯里化是一个很有意思的东西，可以对一个自定义次数调用，并且每次调用参数随意，感觉很 Free，个人觉得功能跟继承类很像。 引用别人的话： curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。 你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://liceal.github.io/img/md0703/klh.jpg">
+<meta property="og:image" content="http://liceal.github.io/img/klh.jpg">
 <meta property="article:published_time" content="2020-07-03T01:47:32.000Z">
-<meta property="article:modified_time" content="2020-07-03T06:06:04.000Z">
+<meta property="article:modified_time" content="2021-01-12T06:14:14.055Z">
 <meta property="article:author" content="米勒">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://liceal.github.io/img/md0703/klh.jpg">
+<meta name="twitter:image" content="http://liceal.github.io/img/klh.jpg">
   
     <link rel="alternative" href="/atom.xml" title="米勒的博客" type="application/atom+xml">
   
@@ -178,37 +178,37 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>函数柯里化是一个很有意思的东西，可以对一个自定义次数调用，并且每次调用参数随意，感觉很Free，个人觉得功能跟继承类很像。</p>
+<p>函数柯里化是一个很有意思的东西，可以对一个自定义次数调用，并且每次调用参数随意，感觉很 Free，个人觉得功能跟继承类很像。</p>
 <p>引用别人的话：</p>
 <p>curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。</p>
 <p>你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用。</p>
-<p><img src="/img/md0703/klh.jpg" alt></p>
+<p><img src="/img/klh.jpg" alt></p>
 </blockquote>
 <a id="more"></a>
 
 <p>上面的图就是使用函数柯里化，这里也实现一个类似的</p>
 <h2><span id="开始之前先了解一下隐式转换">开始之前，先了解一下<code>隐式转换</code></span></h2><p>隐式转换，这个名字听上去比较高级，就是在某些特定的情况下，系统自动进行了类型转换，举个简单的例子</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> + <span class="number">1</span> + <span class="string">'1'</span>); <span class="comment">// 21</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'1'</span> + <span class="number">1</span> + <span class="number">1</span>); <span class="comment">// 111</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> + <span class="number">1</span> + <span class="string">"1"</span>); <span class="comment">// 21</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"1"</span> + <span class="number">1</span> + <span class="number">1</span>); <span class="comment">// 111</span></span><br></pre></td></tr></table></figure>
 
-<p><code>1+1=2</code> + <code>&#39;1&#39;</code>  = <code>21</code>，因为后面遇到了字符串类型，所以进行了字符串拼接</p>
+<p><code>1+1=2</code> + <code>&#39;1&#39;</code> = <code>21</code>，因为后面遇到了字符串类型，所以进行了字符串拼接</p>
 <p><code>&#39;1&#39;+1=&#39;11&#39;</code> + <code>1</code> = <code>111</code>，开始字符串相加的时候就成了字符串，那后面都是字符串拼接</p>
 <p>还有其他方法<code>toString</code>在变量转成<code>String</code>类型时候触发，<code>valueOf</code>在变量转成<code>Number</code>类型的时候触发</p>
 <blockquote>
-<p> 所以可以利用这个特性，去对函数柯里化</p>
+<p>所以可以利用这个特性，去对函数柯里化</p>
 </blockquote>
 <h2><span id="例子">例子</span></h2><p>跟上面的截图题目差不多</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第一次执行时，定义一个数组专门用来存储所有的参数</span></span><br><span class="line">    <span class="keyword">var</span> _args = [...arguments];</span><br><span class="line">    <span class="keyword">var</span> step = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// console.log(`第$&#123;step++&#125;次使用，参数：`, arguments);</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值</span></span><br><span class="line">    <span class="keyword">var</span> _adder = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// console.log(`第$&#123;step++&#125;次使用，隐式转换前，先执行我，参数：`, arguments);</span></span><br><span class="line">        _args.push(...arguments); <span class="comment">// ...[2]  -&gt; 2 -&gt; push(2)</span></span><br><span class="line">        <span class="keyword">return</span> _adder; <span class="comment">//返回自己实现()()()调用</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// toString 和 valueOf 隐式转换特性，到最后等待触发事件，这里关键代码</span></span><br><span class="line">    _adder.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//闭包特性，这个_args如果在此方法中找不到会向上寻找</span></span><br><span class="line">        <span class="keyword">var</span> res = _args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + b * b</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// console.log(`隐式转换，计算结果：$&#123;res&#125;`);</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> _adder;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 第一次执行时，定义一个数组专门用来存储所有的参数</span></span><br><span class="line">  <span class="keyword">var</span> _args = [...arguments];</span><br><span class="line">  <span class="keyword">var</span> step = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">// console.log(`第$&#123;step++&#125;次使用，参数：`, arguments);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值</span></span><br><span class="line">  <span class="keyword">var</span> _adder = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// console.log(`第$&#123;step++&#125;次使用，隐式转换前，先执行我，参数：`, arguments);</span></span><br><span class="line">    _args.push(...arguments); <span class="comment">// ...[2]  -&gt; 2 -&gt; push(2)</span></span><br><span class="line">    <span class="keyword">return</span> _adder; <span class="comment">//返回自己实现()()()调用</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// toString 和 valueOf 隐式转换特性，到最后等待触发事件，这里关键代码</span></span><br><span class="line">  _adder.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//闭包特性，这个_args如果在此方法中找不到会向上寻找</span></span><br><span class="line">    <span class="keyword">var</span> res = _args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> a + b * b;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// console.log(`隐式转换，计算结果：$&#123;res&#125;`);</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> _adder;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3><span id="如果直接输出">如果直接输出</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(count(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)); <span class="comment">// &#123; [Function: _adder] valueOf: [Function] &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> count(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)); <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
 
 <p>本身是一个方法，触发不了方法执行，除非触发上面代码的<code>toString</code></p>
-<h3><span id="触发tostring执行方法">触发<code>toString</code>执行方法</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(count(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>))); <span class="comment">// 14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"count: "</span> + count(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>)); <span class="comment">// count: 14</span></span><br></pre></td></tr></table></figure>
+<h3><span id="触发tostring执行方法">触发<code>toString</code>执行方法</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(count(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>))); <span class="comment">// 14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"count: "</span> + count(<span class="number">1</span>, <span class="number">2</span>)(<span class="number">3</span>)); <span class="comment">// count: 14</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p> 这个时候使用，调用触发隐式转换，也就是执行<code>toString</code>指向的方法</p>
+<p>这个时候使用，调用触发隐式转换，也就是执行<code>toString</code>指向的方法</p>
 </blockquote>
 <p><code>toString</code>触发，顾名思义，转成<code>String</code>类型就行了，使用<code>String(count(1))</code>或者<code>&#39;&#39;+count(1)</code>来触发<code>String</code>类型的隐式转换触发的方法</p>
-<h3><span id="或者number类型">或者Number类型</span></h3><p>代码改一下</p>
+<h3><span id="或者-number-类型">或者 Number 类型</span></h3><p>代码改一下</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">_adder.valueOf = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//闭包特性，这个_args如果在此方法中找不到会向上寻找</span></span><br><span class="line">    <span class="keyword">var</span> res = _args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a + b * b</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// console.log(`隐式转换，计算结果：$&#123;res&#125;`);</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(count(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)))); <span class="comment">// 14</span></span><br><span class="line"><span class="built_in">console</span>.log(count(<span class="number">1</span>,<span class="number">2</span>)(<span class="number">3</span>) + <span class="number">1</span>); <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
@@ -222,7 +222,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(count(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>).abc()); <span class="comment">// 14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> count(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>)); <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>执行abc()方法，触发事件</p>
+<p>执行 abc()方法，触发事件</p>
 </blockquote>
 <p>这个更好理解，这里没有改变<code>_adder</code>的类型，他依然是一个方法</p>
 <p>直接输出了其中一个方法的返回值，差别是需要手动调用，而使用隐式转换特性就能省这一步</p>
@@ -391,7 +391,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 米勒
+    		&copy; 2021 米勒
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
